@@ -26,15 +26,21 @@ public class AnimalDB implements Services {
                 String[] data = line.split(",");
                 int size = data.length;
                 if (size > 3) {
-                    int id = Integer.parseInt(data[0]);
-                    String animalGenue = data[1];
+                    int id;
+                    try {
+                        id = Integer.parseInt(data[0]);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Некорректный ID " + data[0]);
+                        continue;
+                    }
+                    String animalType = data[1];
                     String name = data[2];
                     String birthday = data[3];
 
 //                    String commands = String.join(",", Arrays.copyOfRange(data, 3, data.length));
 
                     Animal animal;
-                    switch (animalGenue) {
+                    switch (animalType) {
                         case "Dog" -> animal = new Dog(id, name, birthday);
                         case "Cat" -> animal = new Cat(id, name, birthday);
                         case "Hamster" -> animal = new Hamster(id, name, birthday);
@@ -42,11 +48,11 @@ public class AnimalDB implements Services {
                         case "Camel" -> animal = new Camel(id, name, birthday);
                         case "Donkey" -> animal = new Donkey(id, name, birthday);
                         default -> {
-                            System.out.println("Неизвестный вид (род) животного: " + animalGenue);
+                            System.out.println("Неизвестный вид (род) животного: " + animalType);
                             continue;
                         }
                     }
-                    for (int i = 3; i < size; i++) {
+                    for (int i = 4; i < size; i++) {
                         animal.newCommand(new Command(data[i]));
                     }
                     animals.add(animal);

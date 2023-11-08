@@ -59,9 +59,12 @@ public class Menu implements View {
         System.out.println("4. Лошадь");
         System.out.println("5. Верблюд");
         System.out.println("6. Осел");
+        Integer animalType = null;
 
-        int animalType = scanner.nextInt();
-        scanner.nextLine();
+        while(animalType == null){
+            animalType =getNumberFromScanner();
+        }
+
         if (animalType < 1 || animalType > 6) {
             System.out.println("Неверно выбран вид (род) животного.");
             return;
@@ -78,6 +81,15 @@ public class Menu implements View {
         observer.onAddNewAnimal(animalType, name, birthday, commands);
     }
 
+    private Integer getNumberFromScanner(){
+        Integer number = null;
+        try{
+            number = Integer.parseInt(scanner.nextLine());
+        } catch (NumberFormatException e) {
+            System.out.println("Введен некорректный ID");
+        }
+        return number;
+    }
 
     private void showAnimalCommands() {
         System.out.println("Введите ID интересующего животного:");
