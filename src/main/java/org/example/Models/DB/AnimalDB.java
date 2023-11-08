@@ -25,7 +25,7 @@ public class AnimalDB implements Services {
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
                 int size = data.length;
-                if (size > 3) {
+                if (size > 4) {
                     int id;
                     try {
                         id = Integer.parseInt(data[0]);
