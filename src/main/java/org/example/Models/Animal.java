@@ -7,7 +7,8 @@ import java.util.stream.Collectors;
 public abstract class Animal {
     private final int id;
     private final String name;
-    private final Collection<Command> commands = new ArrayList<>();;
+    private final Collection<Command> commands = new ArrayList<>();
+    ;
     private final String birthday;
     private static int count = 0;
 
@@ -54,7 +55,7 @@ public abstract class Animal {
     public String toString() {
         String commands = this.getCommands().stream().map(Command::getCommand)
                 .collect(Collectors.joining(","));
-        return  this.getClass().getSimpleName() + "{" +
+        return this.getClass().getSimpleName() + "{" +
                 "id='" + id +
                 "', name='" + name +
                 "', birthday='" + birthday +

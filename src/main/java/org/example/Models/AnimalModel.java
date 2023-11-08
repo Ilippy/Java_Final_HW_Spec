@@ -81,7 +81,7 @@ public class AnimalModel implements Model {
         return Animal.getCount();
     }
 
-    private void addCommandsToAnimal(String commands, Animal animal){
+    private void addCommandsToAnimal(String commands, Animal animal) {
         for (String command : commands.split(",")) {
             animal.newCommand(new Command(command.trim()));
         }

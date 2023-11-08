@@ -79,13 +79,12 @@ public class Menu implements View {
     }
 
 
-
     private void showAnimalCommands() {
         System.out.println("Введите ID интересующего животного:");
         try {
             int id = Integer.parseInt(scanner.nextLine());
             observer.showAnimalCommands(id);
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println("Введен некорректный ID");
         }
     }
@@ -99,7 +98,7 @@ public class Menu implements View {
 
             observer.addNewCommandsToAnimalByID(id, commands);
 //        System.out.println("Команды успешно добавлены!");
-        } catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println("Введен некорректный ID");
         }
     }

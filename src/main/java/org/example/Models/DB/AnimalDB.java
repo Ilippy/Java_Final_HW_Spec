@@ -87,14 +87,14 @@ public class AnimalDB implements Services {
         saveDBByString(fileText);
     }
 
-    private String getEditedFile(Animal animal){
+    private String getEditedFile(Animal animal) {
         StringBuilder fileText = new StringBuilder();
 
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] data = line.split(",");
-                if(data[0] != null && data[0].equals(String.valueOf(animal.getId()))){
+                if (data[0] != null && data[0].equals(String.valueOf(animal.getId()))) {
                     int id = animal.getId();
                     String animalType = animal.getClass().getSimpleName();
                     String name = animal.getName();
@@ -113,7 +113,7 @@ public class AnimalDB implements Services {
         return fileText.toString();
     }
 
-    private void saveDBByString(String fileText){
+    private void saveDBByString(String fileText) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
             writer.write(fileText);
         } catch (IOException e) {

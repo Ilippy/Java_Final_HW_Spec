@@ -1,6 +1,6 @@
 package org.example.Models.Pets;
 
-public class Dog extends Pet{
+public class Dog extends Pet {
     public Dog(String name, String birthday) {
         super(name, birthday);
     }

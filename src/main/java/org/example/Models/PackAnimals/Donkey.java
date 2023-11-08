@@ -1,6 +1,6 @@
 package org.example.Models.PackAnimals;
 
-public class Donkey extends PackAnimal{
+public class Donkey extends PackAnimal {
     public Donkey(String name, String birthday) {
         super(name, birthday);
     }

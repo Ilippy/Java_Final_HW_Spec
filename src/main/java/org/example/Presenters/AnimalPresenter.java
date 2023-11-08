@@ -18,9 +18,10 @@ public class AnimalPresenter implements ViewObserver {
         return animalModel.loadAnimals();
     }
 
-    public void showMenu(){
+    public void showMenu() {
         animalView.showMenu();
     }
+
     @Override
     public void showAnimals() {
         animalView.showAnimals(loadAnimals());
@@ -28,9 +29,9 @@ public class AnimalPresenter implements ViewObserver {
 
     @Override
     public void showAnimalCommands(int id) {
-        try{
+        try {
             animalView.printAnimalResult(animalModel.getCommandsByAnimalID(id));
-        }catch (RuntimeException e){
+        } catch (RuntimeException e) {
             animalView.printAnimalError(e.getMessage());
         }
     }
@@ -40,7 +41,7 @@ public class AnimalPresenter implements ViewObserver {
         try {
             animalModel.addNewCommandsToAnimalByID(id, commands);
             animalView.printAnimalResult("Команды успешно добавлены!");
-        } catch (RuntimeException e){
+        } catch (RuntimeException e) {
             animalView.printAnimalError(e.getMessage());
         }
     }
